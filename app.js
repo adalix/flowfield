@@ -11,10 +11,8 @@ ctx.strokeStyle = "white";
 class Particle {
   constructor(effect) {
     this.effect = effect;
-    // buraya dokundum
-    this.x = Math.floor(Math.random() * this.effect.width) * 0.2;
-    this.y = Math.floor(Math.random() * this.effect.height) * 0.2;
-    // buraya dokundum
+    this.x = Math.floor(Math.random() * this.effect.width);
+    this.y = Math.floor(Math.random() * this.effect.height);
     this.speedX;
     this.speedY;
     this.speedModifier = Math.floor(Math.random() * 5 + 1);
@@ -22,12 +20,11 @@ class Particle {
     this.maxLength = Math.floor(Math.random() * 200 + 10);
     this.angle = 0;
     this.timer = this.maxLength * 2;
-    this.colors = ['#1446A0', '#DB3069', '#F5D547', '#EBEBD3', '#3C3C3B']
+    this.colors = ['#554994', '#F675A8', '#F29393', '#EBEBD3', '#FFCCB3']
     this.color = this.colors[Math.floor(Math.random() * this.colors.length + 1)]
     this.lineWidth = Math.floor(Math.random() * 20 + 1);
   }
   draw(context) {
-    // context.fillRect(this.x, this.y, 10, 10)
     context.beginPath();
     context.moveTo(this.history[0].x, this.history[0].y);
     for (let i = 0; i < this.history.length; i++) {
@@ -75,7 +72,7 @@ class Effect {
     this.height = height;
     this.particles = [];
     this.numberOfParticles = 2000;
-    this.cellSize = 10;
+    this.cellSize = 20;
     this.rows;
     this.cols;
     this.flowField = [];
